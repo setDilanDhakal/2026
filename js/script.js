@@ -59,27 +59,29 @@
 
 
 
-let sname = prompt("Enter your name");
-let science = Number(prompt("Enter the mark of science"));
-let Math = Number(prompt("Enter the mark of Math"));
-let English = Number(prompt("Enter the mark of English"));
-let Computer = Number(prompt("Enter the mark of Computer"));
-let Social = Number(prompt("Enter the mark of Social"));
+// let sname = prompt("Enter your name");
+// let science = Number(prompt("Enter the mark of science"));
+// let Math = Number(prompt("Enter the mark of Math"));
+// let English = Number(prompt("Enter the mark of English"));
+// let Computer = Number(prompt("Enter the mark of Computer"));
+// let Social = Number(prompt("Enter the mark of Social"));
 
-if(Math >= 35 && science >=35 && English >=35 && Social >= 35 && Computer >=35){
-    let total = science + Math + English + Computer + Social;
-    let percentage = total * 100/500;
-    let gpa = percentage /25;
-    console.log("Your name is =", sname);
-    console.log("Science = " +science);
-    console.log("Math = ",Math);
-    console.log("English=",English);
-    console.log("Computer=",Computer);
-    console.log("Social = ",Social);
-    console.log("Total=", total);
-    console.log("Percentage=", percentage);
-    console.log("Gpa = ", gpa);
-}
-else {
-    console.log("You have Failed the exam");
-}
+// if(Math >= 35 && science >=35 && English >=35 && Social >= 35 && Computer >=35){
+//     let total = science + Math + English + Computer + Social;
+//     let percentage = total * 100/500;
+//     let gpa = percentage /25;
+//     console.log("Your name is =", sname);
+//     console.log("Science = " +science);
+//     console.log("Math = ",Math);
+//     console.log("English=",English);
+//     console.log("Computer=",Computer);
+//     console.log("Social = ",Social);
+//     console.log("Total=", total);
+//     console.log("Percentage=", percentage);
+//     console.log("Gpa = ", gpa);
+// }
+// else {
+//     console.log("You have Failed the exam");
+// }
+
+
