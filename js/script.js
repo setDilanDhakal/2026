@@ -293,30 +293,30 @@
 // console.log(numberReplaced);
 
 
-console.log("Hello world")
-console.log("Hello world")
-console.log("Hello world")
-console.log("Hello world")
-console.log("Hello world")
+// console.log("Hello world")
+// console.log("Hello world")
+// console.log("Hello world")
+// console.log("Hello world")
+// console.log("Hello world")
 
-const a = Math.random() * 100;
-const randNum = a.toFixed();
-console.log(randNum);
+// const a = Math.random() * 100;
+// const randNum = a.toFixed();
+// console.log(randNum);
 
-for(let i=0; i<3;i++){
-    let guessNum =Number(prompt("Enter number"));
-    console.log("Guessed number =",guessNum);
-    if(randNum == guessNum){
-        console.log("You have guess the number")
-         break;
-    }
-    else if(guessNum - randNum < 0  && guessNum - randNum > -10){
-        console.log("closely by less than 10")
-    }
-    else if(guessNum - randNum > 0 && guessNum - randNum < 10){
-        console.log("Closely above by less than 10");
-    }
-    else{
-        console.log("Try again");
-    }
-}
+// for(let i=0; i<3;i++){
+//     let guessNum =Number(prompt("Enter number"));
+//     console.log("Guessed number =",guessNum);
+//     if(randNum == guessNum){
+//         console.log("You have guess the number")
+//          break;
+//     }
+//     else if(guessNum - randNum < 0  && guessNum - randNum > -10){
+//         console.log("closely by less than 10")
+//     }
+//     else if(guessNum - randNum > 0 && guessNum - randNum < 10){
+//         console.log("Closely above by less than 10");
+//     }
+//     else{
+//         console.log("Try again");
+//     }
+// }
