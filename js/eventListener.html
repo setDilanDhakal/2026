@@ -25,11 +25,11 @@
     const orangeS = document.getElementById("orange");
     const yellowS = document.getElementById("yellow");
 
-    bl.addEventListener("mousemove", (e) => {
+    bl.addEventListener("mouseover", (e) => {
       console.log(e.x);
       console.log(e.y);
-      circle.style.top = `${e.y - 20}px`;
-      circle.style.left = `${e.x - 20}px`;
+      circle.style.top = `${e.y + 40}px`;
+      circle.style.left = `${e.x + 40}px`;
 
     //   pinkS.style.top = `${e.y - 20}px`;
     //   pinkS.style.left = `${e.x - 20}px`;

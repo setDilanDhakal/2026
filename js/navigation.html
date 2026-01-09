@@ -3,34 +3,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
-      @media screen and (max-width: 500px){
-        #navLink{
+      @media screen and (max-width: 500px) {
+        #navLink {
           display: none;
         }
       }
-      @media screen and (min-width: 500px){
-        #hamburger-bar{
+      @media screen and (min-width: 500px) {
+        #hamburger-bar {
           display: none;
         }
       }
-
     </style>
   </head>
   <body>
     <div id="nav" class="flex p-5 justify-evenly items-center bg-blue-500">
       <div class="flex-1 text-4xl text-white font-bold">Logo</div>
-      <div class="flex font-bold gap-5 text-white " id="navLink">
+      <div class="flex font-bold gap-5 text-white" id="navLink">
         <a href="">Home</a>
         <a href="">About</a>
         <a href="">Blog</a>
         <a href="">Contact Us</a>
         <a href="">Policy</a>
       </div>
-      <div><i class="fa-solid fa-bars text-white text-2xl" onClick="menu()" id="hamburger-bar"></i></div>
+      <div>
+        <i class="fa-solid fa-bars text-white text-2xl" id="hamburger-bar"></i>
+      </div>
     </div>
-    <div id="drop">
+    <div id="drop" class="hidden">
       <div class="flex flex-col gap-3 bg-blue-400 text-white font-bold p-5">
         <a href="">Home</a>
         <a href="">About</a>
@@ -38,12 +45,14 @@
         <a href="">Contact Us</a>
         <a href="">Policy</a>
       </div>
-
     </div>
   </body>
   <script>
-    function menu(){
-      document.getElementById("drop").style.display = "block"
-    }
+    const bar = document.getElementById("hamburger-bar");
+    const drop = document.getElementById("drop");
+
+    bar.addEventListener("click", () => {
+      drop.classList.toggle("hidden");
+    });
   </script>
 </html>
