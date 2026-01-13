@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div>
+        <h2>Control</h2>
+        <button id="increase" class="p-5 text-xl m-5 border ">+</button>
+        <button id="decrease" class="p-5 text-xl m-5 border ">-</button>
+    </div>
+
+    <p id="counter1">0</p>
+    <p id="counter1">0</p>
+    <p id="counter1">0</p>
+
+
+</body>
+<script>
+    const left = document.getElementById("increase");
+    const right = document.getElementById("decrease");
+
+    const cnt_1 = document.getElementById("counter1")
+
+
+    left.addEventListener('click',()=>{
+        cnt_1.innerHTML = Number(cnt_1.textContent)+1;
+    })
+
+
+</script>
+</html>
