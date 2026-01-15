@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/src/assets/font/Satoshi-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Define Tailwind theme token */
+@theme {
+  --font-sans: "Satoshi", sans-serif;
+}
