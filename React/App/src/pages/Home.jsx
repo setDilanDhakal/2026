@@ -1,4 +1,6 @@
 import Banner from '../component/BoxImage.jsx'
+import SecondHero from '../component/secondHero.jsx';
+
 
 function Home() {
   return (
@@ -26,6 +28,7 @@ function Home() {
     </div>
 
     <Banner />
+    <SecondHero />
     </>
 
 
