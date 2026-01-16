@@ -13,6 +13,10 @@ function About (){
         setLightOn(!lightOn)
     }
 
+    const [bgcolor,setBgcolor] = useState('bg-black');
+
+
+
     
 
     const addCounter = ()=>{
@@ -37,15 +41,15 @@ function About (){
                 <button className="border py-2 px-4 bg-white text-black border-black  mx-5" onClick={clicked}>{message}</button>
             </div>
 
+git 
 
 
-
-            <div className="bg-black flex justify-evenly p-5 m-5">
-                <div className="h-20 w-20 bg-red-500" onClick={``}></div>
-                <div className="h-20 w-20 bg-green-500"></div>
-                <div className="h-20 w-20 bg-pink-500"></div>
-                <div className="h-20 w-20 bg-purple-500"></div>
-                <div className="h-20 w-20 bg-yellow-500"></div>
+            <div className={`flex justify-evenly p-5 m-5 ${bgcolor}`}>
+                <div className="h-20 w-20 bg-red-500 border border-white" onClick={()=>setBgcolor("bg-red-500")}></div>
+                <div className="h-20 w-20 bg-green-500 border border-white" onClick={()=>setBgcolor("bg-green-500")}></div>
+                <div className="h-20 w-20 bg-pink-500 border border-white" onClick={()=>setBgcolor("bg-pink-500")}></div>
+                <div className="h-20 w-20 bg-purple-500 border border-white" onClick={()=>setBgcolor("bg-purple-500")}></div>
+                <div className="h-20 w-20 bg-yellow-500 border border-white" onClick={()=>setBgcolor("bg-yellow-500")}></div>
 
             </div>
         </>
