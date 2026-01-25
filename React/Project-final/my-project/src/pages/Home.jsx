@@ -40,7 +40,7 @@ function Home() {
     <div className="mx-6 mt-6">
       <p className="font-bold text-xl mb-4">Dashboard</p>
       
-      {/* flex container */}
+
       <div className="flex flex-wrap gap-4">
 
 
