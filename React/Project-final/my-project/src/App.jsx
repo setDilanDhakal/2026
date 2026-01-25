@@ -5,6 +5,7 @@ import Navigation from './component/Navigation.jsx';
 import User from './pages/User.jsx';
 import Profile from './pages/Profile.jsx'
 import Post from './pages/Post.jsx'
+import Albums from './pages/albums.jsx'
 function App() {
 
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/user" element={<User />} />
         <Route path="/user/:id" element={<Profile />} />
         <Route path="/post" element={<Post />} />
+        <Route path="/albums" element={<Albums />} />
       </Routes>
       <Footer />
       </BrowserRouter>

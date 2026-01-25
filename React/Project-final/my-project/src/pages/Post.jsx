@@ -38,13 +38,13 @@ function Post() {
           return (
             <div
               key={postItem.id}
-              className="w-full md:w-[48%] lg:w-[30%] p-4 border rounded shadow-sm hover:shadow-xl transition transition-all"
+              className="w-full md:w-[48%] lg:w-[30%] p-4 border border-neutral-200 rounded shadow-sm hover:shadow-xl transition transition-all"
             >
               <h1 className="text-xl font-bold mb-2 hover:text-blue-500 ">{postItem.title}</h1>
               <p className="text-sm text-gray-500 mb-2">
                 By: {getUserName(postItem.userId)}
               </p>
-              <p className="text-neutral-700">{postItem.body}</p>
+              <p className="text-neutral-500">{postItem.body}</p>
               <div className="h-1 w-full bg-neutral-400 my-5"></div>
               <button className="bg-[#576A8F] hover:bg-[#576A7F] w-full py-2 text-white text-xl  rounded-2xl"><a href={`user/${postItem.userId}`}>View User Profile</a></button>
             </div>
