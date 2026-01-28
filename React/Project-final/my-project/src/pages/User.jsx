@@ -21,39 +21,38 @@ function User() {
   }, []);
 
   return (
-    <div className="mx-7">
-      <h2 className="text-2xl text-neutral-700 font-bold">Users</h2>
-      <p className="text-neutral-500 mb-4">Browse all registered users</p>
+    <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="mb-8">
+        <h2 className="text-3xl font-semibold text-gray-900 mb-1">Users</h2>
+        <p className="text-gray-500">Browse all registered users</p>
+      </div>
 
-      <div className="flex gap-3 flex-wrap justify-center my-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {users.map((user) => (
           <div
             key={user.id}
-            className="p-4 bg-neutral-100 rounded-lg shadow-xl hover:shadow-lg transition w-80"
+            className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
           >
-            <h3 className="text-lg font-semibold">{user.name}</h3>
-            <p className="text-sm text-gray-500">
-              <b>Username: </b>
-              @{user.username}
-            </p>
-            <p className="text-sm text-gray-500">
-              <b>E-mail: </b>
-              {user.email}
-            </p>
-            <p className="text-sm text-gray-500">
-              <b>Phone: </b>
-              {user.phone}
-            </p> 
-            <p className="text-sm text-gray-500">
-              <b>Website: </b>
-              {user.website}
-            </p>
-            <div className="w-full h-[1px] mt-5 bg-neutral-500 "></div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">{user.name}</h3>
+            <div className="space-y-1 mb-4">
+              <p className="text-sm text-gray-600">
+                @{user.username}
+              </p>
+              <p className="text-sm text-gray-600">
+                {user.email}
+              </p>
+              <p className="text-sm text-gray-600">
+                {user.phone}
+              </p> 
+              <p className="text-sm text-gray-600">
+                {user.website}
+              </p>
+            </div>
             <button
-              className="w-full border py-2 rounded-xl bg-[#FF7444] text-white font-bold mt-5 hover:bg-[#FF5A2E] hover:scale-105 transition-transform duration-200"
+              className="w-full py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
               onClick={() => navigate(`/user/${user.id}`)}
             >
-              Visit Profile
+              View Profile
             </button>
           </div>
         ))}

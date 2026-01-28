@@ -29,24 +29,25 @@ function Post() {
   }, []);
 
   return (
-    <div className="mx-7">
-      <h2 className="text-2xl text-neutral-700 font-bold">Post</h2>
-      <p className="text-neutral-500 mb-4">Browse all registered users</p>
+    <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="mb-8">
+        <h2 className="text-3xl font-semibold text-gray-900 mb-1">Posts</h2>
+        <p className="text-gray-500">Browse all posts</p>
+      </div>
 
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {post.map((postItem) => {
           return (
             <div
               key={postItem.id}
-              className="w-full md:w-[48%] lg:w-[30%] p-4 border border-neutral-200 rounded shadow-sm hover:shadow-xl transition transition-all"
+              className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow flex flex-col"
             >
-              <h1 className="text-xl font-bold mb-2 hover:text-blue-500 ">{postItem.title}</h1>
-              <p className="text-sm text-gray-500 mb-2">
-                By: {getUserName(postItem.userId)}
+              <h1 className="text-lg font-semibold text-gray-900 mb-2">{postItem.title}</h1>
+              <p className="text-xs text-gray-500 mb-3">
+                By {getUserName(postItem.userId)}
               </p>
-              <p className="text-neutral-500">{postItem.body}</p>
-              <div className="h-1 w-full bg-neutral-400 my-5"></div>
-              <button className="bg-[#576A8F] hover:bg-[#576A7F] w-full py-2 text-white text-xl  rounded-2xl"><a href={`user/${postItem.userId}`}>View User Profile</a></button>
+              <p className="text-sm text-gray-600 mb-4 flex-grow">{postItem.body}</p>
+              <button className="w-full py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"><a href={`user/${postItem.userId}`}>View Profile</a></button>
             </div>
           );
         })}

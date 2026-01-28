@@ -31,20 +31,22 @@ function albums() {
 
 
   return (
-    <div className="mx-7">
-      <h2 className="text-2xl text-neutral-700 font-bold">Albums</h2>
-      <p className="text-neutral-500 mb-4">Browse all albums of our users</p>
-      <div className="flex flex-wrap justify-center gap-4">
+    <div className="max-w-6xl mx-auto px-6 py-8">
+      <div className="mb-8">
+        <h2 className="text-3xl font-semibold text-gray-900 mb-1">Albums</h2>
+        <p className="text-gray-500">Browse all albums</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {albums.map((item) => {
           return (
             <div
               key={item.id}
-              className="p-4 border border-neutral-300 rounded shadow-sm w-full md:w-[48%] lg:w-[30%] hover:shadow-xl transition transform-all"
+              className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
             >
-              <h1 className="text-lg font-semibold hover:text-blue-500">
+              <h1 className="text-base font-semibold text-gray-900 mb-1">
                 {item.title}
               </h1>
-              <p className="text-neutral-500">By: {getUserName(item.userId)}</p>
+              <p className="text-sm text-gray-500">By {getUserName(item.userId)}</p>
             </div>
           );
         })}
