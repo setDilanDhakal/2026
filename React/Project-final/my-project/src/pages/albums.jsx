@@ -4,9 +4,10 @@ import axios from "axios";
 function albums() {
   const [albums, setAlbums] = useState([]);
   const [users, setUsers] = useState([]);
-  const [posts, setPosts] = useState([]);
+  const [loading,setLoading] = useState(true);
 
   const handler = async () => {
+    setLoading(true)
     const respondAlbums = await axios.get(
       "https://jsonplaceholder.typicode.com/albums",
     );
@@ -16,6 +17,8 @@ function albums() {
 
     setAlbums(respondAlbums.data);
     setUsers(usersRes.data);
+
+    set
   };
 
   useEffect(() => {

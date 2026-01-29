@@ -40,7 +40,7 @@ function footer() {
 
         <div className="border-t border-gray-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600">
           <div className="flex items-center gap-2">
-            <p>Made with ♡</p>
+            <p>Made By Jane Doe   </p>
             <PiLineVertical />
             <p>By teams</p>
           </div>

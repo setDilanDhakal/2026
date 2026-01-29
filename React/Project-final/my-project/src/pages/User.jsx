@@ -5,15 +5,15 @@ import axios from "axios";
 function User() {
   const [users, setUsers] = useState([]);
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   const handler = async () => {
-
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users",
-      );
-      setUsers(response.data);
-
-     
+    setLoading(true);
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users",
+    );
+    setUsers(response.data);
+    setLoading(false);
   };
 
   const getUserName = (userId) => {
@@ -25,6 +25,13 @@ function User() {
     handler();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       <div className="mb-8">
@@ -38,23 +45,17 @@ function User() {
             key={user.id}
             className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow"
           >
-            <h3 className="text-lg font-semibold text-gray-900 mb-3">{user.name}</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-3">
+              {user.name}
+            </h3>
             <div className="space-y-1 mb-4">
-              <p className="text-sm text-gray-600">
-                @{user.username}
-              </p>
-              <p className="text-sm text-gray-600">
-                {user.email}
-              </p>
-              <p className="text-sm text-gray-600">
-                {user.phone}
-              </p> 
-              <p className="text-sm text-gray-600">
-                {user.website}
-              </p>
+              <p className="text-sm text-gray-600">@{user.username}</p>
+              <p className="text-sm text-gray-600">{user.email}</p>
+              <p className="text-sm text-gray-600">{user.phone}</p>
+              <p className="text-sm text-gray-600">{user.website}</p>
             </div>
             <button
-              className="w-full py-2 rounded-lg bg-[#F5AFAF] text-white text-sm font-medium hover:bg-[#de7a7a] transition-colors"
+              className="w-full py-2 rounded-lg bg-blue-500 text-white text-sm font-medium hover:bg-blue-600 transition-colors"
               onClick={() => navigate(`/user/${user.id}`)}
             >
               View Profile

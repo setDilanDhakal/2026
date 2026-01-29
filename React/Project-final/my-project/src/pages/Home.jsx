@@ -19,9 +19,11 @@ function Home() {
   const [user, setUser] = useState([]);
   const [post, setPost] = useState([]);
   const [albums, setAlbums] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [photo, setPhoto] = useState([]);
 
   const handler = async () => {
+    setLoading(true);
     const respondUser = await axios.get(
       "https://jsonplaceholder.typicode.com/users",
     );
@@ -39,6 +41,7 @@ function Home() {
     setAlbums(respondAlbums.data);
     setPost(respondPost.data);
     setPhoto(respondPhoto.data);
+    setLoading(false);
   };
   console.log("Count: ", user.length);
   console.log("Post", post.length);
@@ -53,6 +56,14 @@ function Home() {
   useEffect(() => {
     handler();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-3 ">
