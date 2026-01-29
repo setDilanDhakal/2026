@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaUser } from "react-icons/fa";
-  
-
 import { Link } from "react-router-dom";
 
 function Post() {
@@ -40,20 +38,20 @@ function Post() {
             className="bg-white border border-gray-200 rounded-lg p-5 hover:shadow-md transition-shadow flex flex-col"
           >
             <h1 className="text-lg font-semibold text-gray-900 mb-2">{postItem.title}</h1>
-            <p className="text-sm text-gray-600 mb-4 flex-grow">{postItem.body}</p>
+            <p className="text-sm text-gray-600 mb-4 grow">{postItem.body}</p>
 
-            <p className="text-xs text-gray-500 mb-3">
+            <p className="text-xs text-gray-500 mb-3 space-x-2">
               <Link
                 to={`/user/${postItem.userId}`}
                 className="text-sm text-[#282829] hover:text-[#3b43dd] ml-auto flex items-center"
               >
-                <FaUser size={14} /> {getUserName(postItem.userId)}
+                <FaUser size={14} className="mx-2" /> {getUserName(postItem.userId)}
               </Link>
             </p>
 
             <Link
               to={`/post/${postItem.id}`}
-              className="w-full py-2 rounded-lg bg-blue-500 text-white text-sm font-medium hover:bg-blue-800 transition-colors text-center"
+              className="w-full py-2 rounded-lg bg-purple-500 text-white text-sm font-medium hover:bg-purple-800 transition-colors text-center"
             >
               View Post
             </Link>

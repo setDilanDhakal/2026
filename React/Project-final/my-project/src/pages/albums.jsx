@@ -16,7 +16,6 @@ function albums() {
 
     setAlbums(respondAlbums.data);
     setUsers(usersRes.data);
-
   };
 
   useEffect(() => {
@@ -28,8 +27,6 @@ function albums() {
     return user ? user.name : "Loading...";
   };
 
-
-
   return (
     <div className="max-w-6xl mx-auto px-6 py-8">
       <div className="mb-8">
@@ -37,7 +34,7 @@ function albums() {
         <p className="text-gray-500">Browse all albums</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {albums.slice(0,30).map((item) => {
+        {albums.slice(0, 30).map((item) => {
           return (
             <div
               key={item.id}
@@ -46,7 +43,18 @@ function albums() {
               <h1 className="text-base font-semibold text-gray-900 mb-1">
                 {item.title}
               </h1>
-              <p className="text-sm text-gray-500">By {getUserName(item.userId)}</p>
+
+              <div className="flex items-center flex-wrap">
+                <p className="text-sm text-gray-500">
+                  By {getUserName(item.userId)}
+                </p>
+                <a
+                  href={`/albums/${item.id}`}
+                  className="text-sm text-green-500 ml-auto   "
+                >
+                  View Albums →
+                </a>
+              </div>
             </div>
           );
         })}

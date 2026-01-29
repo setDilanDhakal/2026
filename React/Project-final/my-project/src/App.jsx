@@ -8,6 +8,7 @@ import Post from './pages/Post.jsx'
 import Albums from './pages/albums.jsx'
 import Photo from './pages/Photo.jsx';
 import DetailPost from './pages/DetailPost.jsx';
+import DetailAlbums from './pages/detailAlbums.jsx'
 function App() {
 
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/albums" element={<Albums />} />
         <Route path="/photo" element={<Photo />} /> 
         <Route path="/post/:id" element={<DetailPost />} />
+        <Route path="/albums/:id" element={<DetailAlbums />} />
       </Routes>
       <Footer />
       </BrowserRouter>

@@ -100,7 +100,7 @@ function Profile() {
           return(
           <div key={albums.id} className="bg-white border border-gray-200 rounded-lg p-4 flex items-center gap-3 hover:shadow-md transition-shadow"
           >
-            <FaFolder size={20} className="text-gray-400 flex-shrink-0" />
+            <FaFolder size={20} className="text-gray-400 shrink-0" />
             <h1 className="text-sm font-medium text-gray-900 truncate">{albums.title}</h1>
             </div>
         )})}
