@@ -1,4 +1,4 @@
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './pages/Home.jsx'
 import Footer from './component/Footer.jsx'
 import Navigation from './component/Navigation.jsx';
@@ -9,13 +9,23 @@ import Albums from './pages/albums.jsx'
 import Photo from './pages/Photo.jsx';
 import DetailPost from './pages/DetailPost.jsx';
 import DetailAlbums from './pages/detailAlbums.jsx'
-function App() {
+import Register from './pages/Register.jsx';
 
+function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  )
+}
+
+function App() {
+  const location = useLocation();
+  const hideNavAndFooter = location.pathname === '/register';
 
   return (
     <>
-      <BrowserRouter>
-      <Navigation />
+      {!hideNavAndFooter && <Navigation />}
       <Routes>
         <Route path="/" element={<Home />} /> 
         <Route path="/user" element={<User />} />
@@ -25,11 +35,11 @@ function App() {
         <Route path="/photo" element={<Photo />} /> 
         <Route path="/post/:id" element={<DetailPost />} />
         <Route path="/albums/:id" element={<DetailAlbums />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
-      <Footer />
-      </BrowserRouter>
+      {!hideNavAndFooter && <Footer />}
     </>
   )
 }
 
-export default App
+export default AppWrapper;
