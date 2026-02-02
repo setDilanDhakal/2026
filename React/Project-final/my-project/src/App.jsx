@@ -10,6 +10,7 @@ import Photo from './pages/Photo.jsx';
 import DetailPost from './pages/DetailPost.jsx';
 import DetailAlbums from './pages/detailAlbums.jsx'
 import Register from './pages/Register.jsx';
+import Login from './pages/Login.jsx'
 
 function AppWrapper() {
   return (
@@ -21,7 +22,8 @@ function AppWrapper() {
 
 function App() {
   const location = useLocation();
-  const hideNavAndFooter = location.pathname === '/register';
+  const hideNavAndFooter = location.pathname === '/register' || location.pathname === '/login';
+  
 
   return (
     <>
@@ -36,6 +38,7 @@ function App() {
         <Route path="/post/:id" element={<DetailPost />} />
         <Route path="/albums/:id" element={<DetailAlbums />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       {!hideNavAndFooter && <Footer />}
     </>

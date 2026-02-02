@@ -1,4 +1,7 @@
+import {useState} from 'react'
 function Login() {
+const [showPassword, setShowPassword] = useState(false);
+
   return (
     <>
       <div class="bg-neutral-200 h-screen flex justify-center items-center">
@@ -24,20 +27,21 @@ function Login() {
               <br />
               <input
                 placeholder="Password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 for="password"
                 name="password"
+                
                 class="border w-full h-10 border-stone-300 p-3"
               />
             </div>
 
             <div class="p-2">
-              <input type="checkbox" id="true" />
+              <input type="checkbox" checked={showPassword} onChange={()=>setShowPassword(!showPassword)} id="true" />
               <label> Show Password</label>
             </div>
 
             <div class="p-2">
-              <button type="submit" class=" py-4 bg-cyan-600 w-full text-white">
+              <button type="submit" class=" py-4 bg-blue-400 hover:bg-blue-700 w-full text-white">
                 Sign up
               </button>
             </div>
@@ -54,7 +58,7 @@ function Login() {
               </p>
               <p>
                 Don't have an account?{" "}
-                <a href="" class="text-cyan-500">
+                <a href="/register" class="text-cyan-500">
                   Sign up
                 </a>
               </p>
