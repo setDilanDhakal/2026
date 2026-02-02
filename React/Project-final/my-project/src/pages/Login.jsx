@@ -1,6 +1,16 @@
 import {useState} from 'react'
 function Login() {
 const [showPassword, setShowPassword] = useState(false);
+const [email,setEmail] = useState('');
+const [password,setPassword] = useState('');
+
+const handleLogin = ()=>{
+  if(!email){
+    to
+  }
+}
+
+
 
   return (
     <>
@@ -18,6 +28,8 @@ const [showPassword, setShowPassword] = useState(false);
                 for="email"
                 placeholder="Enter Email"
                 name="email"
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
                 class="border w-full h-10 border-stone-300 p-3"
               />
             </div>
@@ -30,7 +42,8 @@ const [showPassword, setShowPassword] = useState(false);
                 type={showPassword ? 'text' : 'password'}
                 for="password"
                 name="password"
-                
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
                 class="border w-full h-10 border-stone-300 p-3"
               />
             </div>
