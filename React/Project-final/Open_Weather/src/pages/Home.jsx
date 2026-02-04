@@ -4,6 +4,12 @@ import { getData, getDetails } from "../services/apiCall";
 function Home() {
   const [city, setCity] = useState("");
   const [weather, setWeather] = useState("");
+  const [countryWeather, setCountryWeather] = useState({
+    japan: null,
+    poland: null,
+    china: null,
+    korea: null
+  });
 
   const handle = async (cityName) => {
     const searchCity = cityName || "Kawasoti";
@@ -15,8 +21,39 @@ function Home() {
     setWeather(respondData.data);
   };
 
+  const fetchCountryWeather = async (cityName) => {
+    try {
+      const respond = await getData(cityName);
+      if (respond.data && respond.data.length > 0) {
+        const { lat, lon } = respond.data[0];
+        const respondData = await getDetails(lat, lon);
+        return respondData.data;
+      }
+      return null;
+    } catch (error) {
+      console.error(`Error fetching weather for ${cityName}:`, error);
+      return null;
+    }
+  };
+
   useEffect(() => {
-    handle(); 
+    handle();
+    
+    const fetchAllCountries = async () => {
+      const japan = await fetchCountryWeather("Tokyo");
+      const poland = await fetchCountryWeather("Warsaw");
+      const china = await fetchCountryWeather("Beijing");
+      const korea = await fetchCountryWeather("Seoul");
+      
+      setCountryWeather({
+        japan,
+        poland,
+        china,
+        korea
+      });
+    };
+    
+    fetchAllCountries();
   }, []);
 
   return (
@@ -81,6 +118,37 @@ function Home() {
               {weather.main?.pressure} hPa
             </p>
           </div>
+        </div>
+
+        <div className="flex gap-5 m-5 flex-wrap justify-center">
+          {countryWeather.japan && (
+            <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 text-center shadow-lg">
+              <p className="text-gray-800 font-semibold text-lg mb-2">{countryWeather.japan.name}</p>
+              <p className="text-gray-800 text-2xl font-bold">{Math.round(countryWeather.japan.main?.temp)}°</p>
+              <p className="text-gray-500 text-sm capitalize">{countryWeather.japan.weather?.[0]?.description}</p>
+            </div>
+          )}
+          {countryWeather.poland && (
+            <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 text-center shadow-lg">
+              <p className="text-gray-800 font-semibold text-lg mb-2">{countryWeather.poland.name}</p>
+              <p className="text-gray-800 text-2xl font-bold">{Math.round(countryWeather.poland.main?.temp)}°</p>
+              <p className="text-gray-500 text-sm capitalize">{countryWeather.poland.weather?.[0]?.description}</p>
+            </div>
+          )}
+          {countryWeather.china && (
+            <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 text-center shadow-lg">
+              <p className="text-gray-800 font-semibold text-lg mb-2">{countryWeather.china.name}</p>
+              <p className="text-gray-800 text-2xl font-bold">{Math.round(countryWeather.china.main?.temp)}°</p>
+              <p className="text-gray-500 text-sm capitalize">{countryWeather.china.weather?.[0]?.description}</p>
+            </div>
+          )}
+          {countryWeather.korea && (
+            <div className="bg-white/60 backdrop-blur-sm rounded-3xl p-6 text-center shadow-lg">
+              <p className="text-gray-800 font-semibold text-lg mb-2">{countryWeather.korea.name}</p>
+              <p className="text-gray-800 text-2xl font-bold">{Math.round(countryWeather.korea.main?.temp)}°</p>
+              <p className="text-gray-500 text-sm capitalize">{countryWeather.korea.weather?.[0]?.description}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>

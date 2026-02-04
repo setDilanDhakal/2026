@@ -3,7 +3,7 @@
 
 
  export const getData = async(city)=>{
-    const respond= await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city},NP&limit=1&appid=${apiKey}`)
+    const respond= await axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`)
     return respond;
  }
 
