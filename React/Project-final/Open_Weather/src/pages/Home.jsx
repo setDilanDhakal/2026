@@ -29,6 +29,8 @@ function Home() {
         const respondData = await getDetails(lat, lon);
         return respondData.data;
       }
+
+      
       return null;
     } catch (error) {
       console.error(`Error fetching weather for ${cityName}:`, error);
