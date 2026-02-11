@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 
 dotenv.config({
   path: "./.env",
@@ -7,8 +8,6 @@ dotenv.config({
 
 const app = express();
 const port = process.env.PORT;
-
-
 
 // app.use("/", (req, res) => {
 //   const result = {
@@ -44,6 +43,12 @@ app.get("/user", (req, res) => {
 //     res.send('this is contact page.')
 // })
 
-app.listen(port, () => {
-  console.log("Server is running at", port);
-});
+connectDB()
+  .then(() => {
+    app.listen(port, () => {
+      console.log("Server is running at", port);
+    });
+  })
+  .catch((err) => {
+    console.log("MongoDB Connection Failed", err);
+  });
